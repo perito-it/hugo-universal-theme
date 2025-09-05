@@ -27,10 +27,9 @@
 <link href="{{ "css/animate.css" | relURL }}" rel="stylesheet">
 
 <!-- Theme stylesheet, if possible do not edit this stylesheet -->
+<link href="{{ "css/default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
 {{ with .Site.Params.style }}
-  <link href="{{ "css/style" | relURL }}.{{ . }}.css" rel="stylesheet" id="theme-stylesheet">
-{{ else }}
-  <link href="{{ "css/style.default.css" | relURL }}" rel="stylesheet" id="theme-stylesheet">
+  <link href="{{ "css/style" | relURL }}.{{ . }}.css" rel="stylesheet">
 {{ end }}
 
 <!-- Custom stylesheet - for your changes -->
