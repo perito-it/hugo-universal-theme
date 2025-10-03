@@ -287,6 +287,29 @@ ul.list-style-none {
 #top .social a:hover.email {
   background-color: #4a7f45;
 }
+#top .langswitcher {
+  float: right;
+  text-align: right;
+}
+#top .langswitcher a {
+  color: #999999;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  line-height: 24px;
+  font-size: 12px;
+  text-align: center;
+}
+#top .langswitcher a:hover {
+  color: #fff;
+  background: var(--primary-accent);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+#top .langswitcher .langactive{
+  font-weight: bold;
+}
 #top .login {
   float: right;
 }
