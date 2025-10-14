@@ -1,6 +1,10 @@
 {{ if default true .Site.Params.CarouselHomepage.enable }}
 {{ if isset .Site.Data "carousel" }}
 {{ if gt (len .Site.Data.carousel) 0 }}
+
+{{ $lang := .Site.Language.Lang }}
+{{ $slides := or (index .Site.Data $lang "carousel") .Site.Data.carousel }}
+
 <section>
     <div class="home-carousel">
         <div class="dark-mask"></div>
@@ -9,7 +13,7 @@
                 data-autoplay="{{ default true .Site.Params.CarouselHomepage.auto_play }}"
                 data-slide-speed="{{ default 2000 .Site.Params.CarouselHomepage.slide_speed }}"
                 data-pagination-speed="{{ default 1000 .Site.Params.CarouselHomepage.pagination_speed }}">
-                {{ range sort .Site.Data.carousel "weight" }}
+                {{ range sort $slides "weight" }}
                 <div class="item">
                     {{ if .href }}
                     <a href="{{ .href }}" target="_blank" title="{{ .title | safeHTML }}">

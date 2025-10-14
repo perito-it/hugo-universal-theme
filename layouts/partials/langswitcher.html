@@ -1,0 +1,16 @@
+{{- $p := . -}}
+{{- $nodes := cond $p.IsHome $p.Site.Home.AllTranslations $p.AllTranslations -}}
+{{- $sites := sort site.Sites "Language.Weight" "asc" -}}
+{{- $hasMultiple := gt (len $sites) 1 -}}
+
+{{ if $hasMultiple }}
+<nav aria-label="Language">
+  {{ range $sites }}
+    {{ $lang := .Language.Lang }}
+    {{ $match := index (where $nodes "Lang" $lang) 0 | default .Home }}
+    <a href="{{ $match.Permalink }}" {{ if eq $lang $p.Site.Language.Lang }}class="langactive" aria-current="true"{{ end }}>
+      {{ .Language.LanguageName }}
+    </a>
+  {{ end }}
+</nav>
+{{ end }}
